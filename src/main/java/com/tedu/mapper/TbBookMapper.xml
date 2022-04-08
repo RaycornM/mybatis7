@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tedu.mapper.TbBookMapper">
+<!-- public TbBook selectBookByIsbn(String isbn); -->
+<select id="selectBookByIsbn" parameterType="String" resultType="com.tedu.pojo.TbBook">
+		select * from tb_book where isbn = #{isbn}
+	</select>
+	
+	<select id="selectAllBook" resultType="com.tedu.pojo.TbBook">
+    select * from tb_book
+  </select>
+  
+  <insert id="insertBook" parameterType="com.tedu.pojo.TbBook">
+  	insert into tb_book(isbn,title,author ,price,press,edition,published,pages,words,packaging,format,form) 
+  	value(#{isbn},#{title},#{author},#{price},#{press},#{edition},#{published},#{pages},#{words})
+  </insert>
+
+</mapper>
